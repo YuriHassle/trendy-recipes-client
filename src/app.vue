@@ -1,3 +1,5 @@
 <template>
-  <div>Trendy Recipes</div>
+  <div>
+    <NuxtPage />
+  </div>
 </template>
