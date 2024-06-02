@@ -13,7 +13,7 @@
 
   &__title {
     font-size: 3rem;
-    color: rgba(10 10 10 50%);
+    color: rgb(10 10 10 / 50%);
   }
 }
 </style>
