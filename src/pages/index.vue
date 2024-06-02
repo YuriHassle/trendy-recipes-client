@@ -1,9 +1,3 @@
-<script setup>
-import HeroBanner from '/components/atoms/HeroBanner.vue';
-</script>
-
 <template>
-  <div>
-    <HeroBanner />
-  </div>
+  <div>Content Here</div>
 </template>
