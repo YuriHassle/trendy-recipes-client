@@ -1,7 +1,6 @@
 <template>
   <div class="header">
     <h1 class="header__title">Trendy Recipes</h1>
-    <p>Welcome to your new project!</p>
   </div>
 </template>
 
