@@ -17,8 +17,8 @@ logs
 .DS_Store
 .fleet
 .idea
+.stylelintcache
 
 # Local env files
 .env
-.env.*
 !.env.example
