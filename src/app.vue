@@ -5,14 +5,14 @@ import PageHeader from '@/components/molecules/PageHeader.vue';
 <template>
   <div>
     <PageHeader />
-    <div class="page-container">
+    <main class="page-container">
       <NuxtPage />
-    </div>
+    </main>
   </div>
 </template>
 
 <style scoped lang="scss">
 .page-container {
-  padding: 2rem;
+  padding: 2rem 2rem 3.5rem;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <div class="header">
+  <header class="header">
     <h1 class="header__title">Trendy Recipes</h1>
-  </div>
+  </header>
 </template>
 
 <style scoped lang="scss">
