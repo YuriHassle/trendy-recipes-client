@@ -1,25 +1,10 @@
 <script setup lang="ts">
-import { useRecipeStore } from '@/store/recipe';
-
-const recipeStore = useRecipeStore();
-await recipeStore.loadRecipes();
+import RecipeList from '@/components/recipes/RecipeList.vue';
 </script>
 
 <template>
   <div>
-    <h1 class="home__title">Recipes</h1>
-    <ul class="recipes">
-      <li v-for="recipe in recipeStore.recipes" :key="recipe.id">
-        <h2>{{ recipe.title }}</h2>
-        <p>{{ recipe.description }}</p>
-      </li>
-    </ul>
+    <RecipeList />
+    <NuxtLink to="/recipe"> New Recipe </NuxtLink>
   </div>
 </template>
-
-<style lang="scss" scoped>
-.recipes {
-  list-style: none;
-  color: bisque;
-}
-</style>
