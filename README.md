@@ -1,75 +1,29 @@
-# Nuxt 3 Minimal Starter
+# Trendy Recipes Client
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This is the SSR application of the Trendy Recipes project.
 
-## Setup
+## Prerequisites
 
-Make sure to install the dependencies:
+Before running the project, make sure you have the following installed:
 
-```bash
-# npm
-npm install
+- Node.js
 
-# pnpm
-pnpm install
+## Running in development mode
 
-# yarn
-yarn install
+1. Start the development server by running:
 
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+```shell
 npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+This will start the server on http://127.0.0.1:3001.
 
-Build the application for production:
+## Building for production
 
-```bash
-# npm
+1. Build the project by running:
+
+```shell
 npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
 
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+This will create the _client_ and _server_ folders under _.nuxt/dist_
