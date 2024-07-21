@@ -6,11 +6,10 @@ await recipeStore.loadRecipes();
 </script>
 
 <template>
-  <div class="recipes">
-    <h2 class="recipes__title">Recipes</h2>
+  <div class="recipes section">
     <ul class="recipes__list">
-      <li v-for="recipe in recipeStore.recipes" :key="recipe.id">
-        <h2>{{ recipe.title }}</h2>
+      <li v-for="recipe in recipeStore.recipes" :key="recipe.id" class="recipes__card card">
+        <h2 class="card__title">{{ recipe.title }}</h2>
         <p>{{ recipe.description }}</p>
       </li>
     </ul>
@@ -20,7 +19,14 @@ await recipeStore.loadRecipes();
 <style lang="scss" scoped>
 .recipes {
   &__list {
-    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
   }
 }
 </style>

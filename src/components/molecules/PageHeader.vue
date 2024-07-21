@@ -6,13 +6,13 @@
 
 <style scoped lang="scss">
 .header {
-  background-color: bisque;
+  background-color: var(--color-primary);
   padding: 1.5rem 1rem;
   text-align: center;
 
   &__title {
     font-size: 3rem;
-    color: rgb(10 10 10 / 50%);
+    color: var(--color-text-contrast);
   }
 }
 </style>

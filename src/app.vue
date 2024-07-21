@@ -1,18 +1,14 @@
 <script setup lang="ts">
 import PageHeader from '@/components/molecules/PageHeader.vue';
+import PageFooter from '@/components/molecules/PageFooter.vue';
 </script>
 
 <template>
   <div>
     <PageHeader />
-    <main class="page-container">
+    <main>
       <NuxtPage />
     </main>
+    <PageFooter />
   </div>
 </template>
-
-<style scoped lang="scss">
-.page-container {
-  padding: 2rem 2rem 3.5rem;
-}
-</style>

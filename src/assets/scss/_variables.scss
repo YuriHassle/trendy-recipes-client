@@ -1,0 +1,37 @@
+:root {
+  // Base Colors
+  --color-primary: #ff6f61;
+  --color-secondary: #20b2aa;
+  --color-tertiary: #7f00ff;
+
+  // Secondary Colors
+  --color-accent-100: #ffc107;
+  --color-accent-110: #f5b800;
+  --color-accent-200: #40e0d0;
+
+  // Neutral Colors
+  --color-neutral-000: #fff;
+  --color-neutral-100: #f8f9fa;
+  --color-neutral-200: #6c757d;
+  --color-neutral-300: #343a40;
+  --color-neutral-900: #000;
+
+  // Text Colors
+  --color-text-primary: var(--color-neutral-300);
+  --color-text-contrast: var(--color-neutral-100);
+
+  // Semantic Colors
+  --color-success: #20b2aa;
+  --color-error: #ff6f61;
+  --color-warning: #ffc107;
+  --color-info: #40e0d0;
+
+  // Border Colors
+  --color-border-primary: var(--color-neutral-200);
+
+  // Corners
+  --border-radius-100: 0.375rem;
+  --border-radius-200: 0.5rem;
+  --border-radius-300: 0.75rem;
+  --border-radius-400: 1rem;
+}

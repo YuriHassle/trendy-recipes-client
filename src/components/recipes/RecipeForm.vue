@@ -39,8 +39,8 @@ function handleSubmit() {
 </script>
 
 <template>
-  <div>
-    <h3>Create a new Recipe</h3>
+  <div class="section">
+    <h3 class="new-recipe__header">Create a new Recipe</h3>
     <form class="new-recipe__form" @submit.prevent="handleSubmit">
       <div class="new-recipe__field">
         <label for="title">Title: </label>
@@ -102,7 +102,7 @@ function handleSubmit() {
         />
         <span v-if="v$.preparation.$error">{{ v$.preparation.$errors[0].$message }}</span>
       </div>
-      <button type="submit">Create Recipe</button>
+      <button class="btn btn--primary" type="submit">Create Recipe</button>
       <span v-if="v$.$error">Please, check the form data</span>
     </form>
   </div>

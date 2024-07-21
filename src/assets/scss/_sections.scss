@@ -1,0 +1,12 @@
+.section {
+  padding: 0 1rem;
+  margin: 2rem 0;
+
+  @include breakpoint(desktop) {
+    padding: 0 1.5rem;
+  }
+
+  @include breakpoint(desktop) {
+    padding: 0 2rem;
+  }
+}

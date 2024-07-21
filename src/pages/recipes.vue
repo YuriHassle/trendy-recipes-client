@@ -10,9 +10,3 @@ import RecipeForm from '~/components/recipes/RecipeForm.vue';
     <RecipeForm />
   </div>
 </template>
-
-<style lang="scss" scoped>
-.test {
-  color: red;
-}
-</style>
