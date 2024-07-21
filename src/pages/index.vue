@@ -5,6 +5,10 @@ import RecipeList from '@/components/recipes/RecipeList.vue';
 <template>
   <div>
     <RecipeList />
-    <NuxtLink to="/recipe"> New Recipe </NuxtLink>
+    <div class="section">
+      <NuxtLink to="/recipes">
+        <button class="btn btn--primary">+ New Recipe</button>
+      </NuxtLink>
+    </div>
   </div>
 </template>
