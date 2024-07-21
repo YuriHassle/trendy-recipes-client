@@ -30,11 +30,21 @@ const rules = {
 
 const v$ = useVuelidate(rules, newRecipe);
 
-function handleSubmit() {
+async function handleSubmit() {
   v$.value.$validate();
   if (!v$.value.$error) {
-    recipeStore.createRecipe(newRecipe);
+    await recipeStore.createRecipe(newRecipe);
+    clearForm();
   }
+}
+
+function clearForm() {
+  newRecipe.title = '';
+  newRecipe.description = '';
+  newRecipe.video.url = '';
+  newRecipe.ingredients = '';
+  newRecipe.preparation = '';
+  v$.value.$reset();
 }
 </script>
 
@@ -121,8 +131,10 @@ function handleSubmit() {
           {{ v$.preparation.$errors[0].$message }}
         </span>
       </div>
-      <button class="btn btn--primary" type="submit">Create Recipe</button>
-      <span v-if="v$.$error">Please, check the form data</span>
+      <div class="new-recipe__field-container">
+        <button class="btn btn--primary" type="submit">Create Recipe</button>
+        <span v-if="v$.$error" class="message message--error">Please, check the form data</span>
+      </div>
     </form>
   </div>
 </template>

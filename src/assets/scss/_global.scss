@@ -89,3 +89,15 @@ hr {
     color: var(--color-success);
   }
 }
+
+.message {
+  margin-top: 0.5rem;
+
+  &--error {
+    color: var(--color-error);
+  }
+
+  &--success {
+    color: var(--color-success);
+  }
+}
