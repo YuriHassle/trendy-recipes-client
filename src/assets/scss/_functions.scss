@@ -1,0 +1,3 @@
+@function hsl-opacity($hsl, $opacity) {
+  @return hsl(from var($hsl) h s l / $opacity);
+}

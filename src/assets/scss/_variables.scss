@@ -1,6 +1,6 @@
 :root {
   // Base Colors
-  --color-primary: #ff6f61;
+  --color-primary: hsl(5deg 100% 69%);
   --color-secondary: #20b2aa;
   --color-tertiary: #7f00ff;
 
@@ -12,7 +12,7 @@
   // Neutral Colors
   --color-neutral-000: #fff;
   --color-neutral-100: #f8f9fa;
-  --color-neutral-200: #6c757d;
+  --color-neutral-200: hsl(208deg 7% 46%);
   --color-neutral-300: #343a40;
   --color-neutral-900: #000;
 
@@ -27,11 +27,14 @@
   --color-info: #40e0d0;
 
   // Border Colors
-  --color-border-primary: var(--color-neutral-200);
+  --color-border-100: hsla(208deg 7% 46% / 40%);
 
   // Corners
   --border-radius-100: 0.375rem;
   --border-radius-200: 0.5rem;
   --border-radius-300: 0.75rem;
   --border-radius-400: 1rem;
+
+  // Shadows
+  --shadow-100: 0.125rem 0.125rem 0.25rem rgba(0 0 0 / 10%);
 }
