@@ -8,9 +8,15 @@ await recipeStore.loadRecipes();
 <template>
   <div class="recipes section">
     <ul class="recipes__list">
-      <li v-for="recipe in recipeStore.recipes" :key="recipe.id" class="recipes__card card">
-        <h2 class="card__title">{{ recipe.title }}</h2>
-        <p>{{ recipe.description }}</p>
+      <li
+        v-for="recipe in recipeStore.recipes"
+        :key="recipe.id"
+        class="recipes__card card card--clickable"
+      >
+        <NuxtLink :to="{ name: 'recipes-id', params: { id: recipe.id } }">
+          <h2 class="card__title">{{ recipe.title }}</h2>
+          <p>{{ recipe.description }}</p>
+        </NuxtLink>
       </li>
     </ul>
   </div>

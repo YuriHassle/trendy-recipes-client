@@ -1,7 +1,10 @@
+import type { Video } from './video';
+
 export interface Recipe {
   id: number;
   user_id: number;
   video_id: number;
+  video?: Video;
   language_id: number;
   title: string;
   description: string;

@@ -11,6 +11,12 @@ export const fetchRecipes = async (): Promise<Recipe[]> => {
   return data.value as Recipe[];
 };
 
+export const fetchRecipe = async (id: string): Promise<Recipe> => {
+  const { data, error } = await useFetch(`/recipes/${id}`, { baseURL: getBaseUrl() });
+  if (error.value) throw new Error('Error fetching recipe');
+  return data.value as Recipe;
+};
+
 export const addRecipe = async (recipe: RecipePayload): Promise<Recipe | null> => {
   try {
     const data = await $fetch('/recipes', {
