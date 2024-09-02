@@ -1,21 +1,23 @@
 <script setup lang="ts">
-import { useRecipeStore } from '@/store/recipe';
+import RecipeVideo from '@/components/recipes/RecipeVideo.vue';
+import { useFetchRecipe } from '@/repository/recipe';
 
-const recipeStore = useRecipeStore();
 const route = useRoute();
 
-const recipeId = route.params.id;
-const recipe = await recipeStore.loadRecipe(recipeId as string);
+const recipeId = route.params.id as string;
 
-const { getEmbedCodeFromUrl } = useTikTok();
-const embedVideo = await getEmbedCodeFromUrl(recipe.video?.url);
+const { data: recipe, error, pending } = await useFetchRecipe(recipeId);
+
+if (error.value) console.error(error.value);
 </script>
 
 <template>
-  <div class="recipe">
+  <div v-if="pending">Loading...</div>
+  <div v-else-if="error">Failed to load the recipe</div>
+  <div v-else-if="recipe" class="recipe">
     <h2 class="recipe__title page-title">{{ recipe.title }}</h2>
     <p>{{ recipe.description }}</p>
-    <div v-html="embedVideo"></div>
+    <RecipeVideo :url="recipe.video?.url" />
     <p>{{ recipe.ingredients }}</p>
     <p>{{ recipe.preparation }}</p>
   </div>

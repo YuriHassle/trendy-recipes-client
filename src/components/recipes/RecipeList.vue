@@ -1,13 +1,19 @@
 <script setup lang="ts">
 import { useRecipeStore } from '@/store/recipe';
+import { useFetchRecipes } from '@/repository/recipe';
 
 const recipeStore = useRecipeStore();
-await recipeStore.loadRecipes();
+const { data, error, pending } = await useFetchRecipes();
+
+if (error.value) console.error(error.value);
+recipeStore.addRecipes(data.value || []);
 </script>
 
 <template>
   <div class="recipes section">
-    <ul class="recipes__list">
+    <div v-if="pending">Loading...</div>
+    <div v-else-if="error">Failed to load recipes</div>
+    <ul v-else class="recipes__list">
       <li
         v-for="recipe in recipeStore.recipes"
         :key="recipe.id"

@@ -1,27 +1,20 @@
-import { fetchRecipes, fetchRecipe, addRecipe } from '@/services/recipe';
-import type { Recipe, RecipePayload } from '@/models/recipe';
+import type { Recipe } from '@/models/recipe';
 
 export const useRecipeStore = defineStore('recipeStore', () => {
   const recipes = ref<Recipe[]>([]);
 
-  async function loadRecipes(): Promise<void> {
-    recipes.value = await fetchRecipes();
+  async function addRecipes(newRecipes: Recipe[]): Promise<void> {
+    recipes.value = newRecipes;
   }
 
-  async function loadRecipe(id: string): Promise<Recipe> {
-    return await fetchRecipe(id);
-  }
-
-  async function createRecipe(recipePayload: RecipePayload): Promise<void> {
-    const recipe = await addRecipe(recipePayload);
+  async function addRecipe(recipe: Recipe | null): Promise<void> {
     if (!recipe) return;
     recipes.value.push(recipe);
   }
 
   return {
     recipes,
-    loadRecipes,
-    loadRecipe,
-    createRecipe,
+    addRecipes,
+    addRecipe,
   };
 });

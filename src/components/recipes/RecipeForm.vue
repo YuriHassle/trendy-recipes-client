@@ -2,10 +2,11 @@
 import { useVuelidate } from '@vuelidate/core';
 import { required, url } from '@vuelidate/validators';
 import { useRecipeStore } from '@/store/recipe';
+import { useAddRecipe } from '@/repository/recipe';
 
 const recipeStore = useRecipeStore();
 
-const newRecipe = reactive({
+const recipe = reactive({
   title: '',
   description: '',
   video: {
@@ -28,22 +29,23 @@ const rules = {
   preparation: { required },
 };
 
-const v$ = useVuelidate(rules, newRecipe);
+const v$ = useVuelidate(rules, recipe);
 
 async function handleSubmit() {
   v$.value.$validate();
   if (!v$.value.$error) {
-    await recipeStore.createRecipe(newRecipe);
+    const newRecipe = await useAddRecipe(recipe);
+    recipeStore.addRecipe(newRecipe);
     clearForm();
   }
 }
 
 function clearForm() {
-  newRecipe.title = '';
-  newRecipe.description = '';
-  newRecipe.video.url = '';
-  newRecipe.ingredients = '';
-  newRecipe.preparation = '';
+  recipe.title = '';
+  recipe.description = '';
+  recipe.video.url = '';
+  recipe.ingredients = '';
+  recipe.preparation = '';
   v$.value.$reset();
 }
 </script>
@@ -56,7 +58,7 @@ function clearForm() {
         <label for="title">Title: </label>
         <input
           id="title"
-          v-model="newRecipe.title"
+          v-model="recipe.title"
           type="text"
           class="field"
           :class="{ 'field--error': v$.title.$error, 'field--success': !v$.title.$invalid }"
@@ -70,7 +72,7 @@ function clearForm() {
         <label for="description">Description: </label>
         <input
           id="description"
-          v-model="newRecipe.description"
+          v-model="recipe.description"
           type="text"
           class="field"
           :class="{
@@ -87,7 +89,7 @@ function clearForm() {
         <label for="video-url">Video URL: </label>
         <input
           id="video-url"
-          v-model="newRecipe.video.url"
+          v-model="recipe.video.url"
           type="url"
           class="field"
           :class="{ 'field--error': v$.video.url.$error, 'field--success': !v$.video.url.$invalid }"
@@ -101,7 +103,7 @@ function clearForm() {
         <label for="ingredients">Ingredients: </label>
         <textarea
           id="ingredients"
-          v-model="newRecipe.ingredients"
+          v-model="recipe.ingredients"
           type="text"
           class="field"
           :class="{
@@ -118,7 +120,7 @@ function clearForm() {
         <label for="preparation">Preparation: </label>
         <textarea
           id="preparation"
-          v-model="newRecipe.preparation"
+          v-model="recipe.preparation"
           type="text"
           class="field"
           :class="{
