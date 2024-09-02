@@ -1,6 +1,8 @@
 <template>
   <header class="header">
-    <h1 class="header__title">Trendy Recipes</h1>
+    <NuxtLink :to="{ name: 'index' }">
+      <h1 class="header__title">Trendy Recipes</h1>
+    </NuxtLink>
   </header>
 </template>
 
